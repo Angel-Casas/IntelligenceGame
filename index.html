@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="CSS/style.css">
+        <script src="JS/main.js" defer></script>
+    </head>
+    <body>
+      <div id="wrapper">
+        <h1>El Zorro y las gallinas</h1>
+        <div id="gameWrapper">
+          <img srcset="./Images/300w.jpg 300w,
+             ./Images/600w.jpg 600w,
+             ./Images/900w.jpg 900w"
+     sizes="(max-width: 650px) 300px,
+            (max-width: 950px) 600px,
+            900px"
+     src="./Images/900w.jpg 900w" alt="Background">
+          <div id="game"></div>
+        </div>
+        <h4 id="status"></h4>
+        <div id="info"></div>
+        <input type="button" id="btnStart" class="btn" value="Empezar">
+        <input type="button" id="newTurn" class="btn" value="Nuevo Turno">
+      </div>
+    </body>
+</html>

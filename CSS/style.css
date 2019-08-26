@@ -1,0 +1,156 @@
+/* Prevent the text contents of draggable elements from being selectable. */
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+h1, h2, h3, h4 {
+  margin: .4rem;
+  padding: .2rem;
+}
+#gameWrapper {
+  position: relative;
+  margin: 4.6rem 0;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+#gameWrapper img {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+#game {
+  border: 1px solid white;
+  width: 900px;
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.square {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.special {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, .6);
+}
+.chicken, .fox {
+  border-radius: 5px;
+  position: relative;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.chicken {
+  width: 40px;
+  height: 40px;
+  top: calc(50% - 20px);
+  background-color: red;
+}
+.fox {
+  width: 60px;
+  height: 60px;
+  top: calc(50% - 30px);
+  background-color: blue;
+}
+.possibleMoves {
+  background-color: rgba(255, 0, 0, .4);
+}
+.possibleAttacks {
+  background-color: rgba(255, 255, 0, .4);
+}
+.over {
+  border: 1px dashed white;
+}
+#status {
+  font-size: 2.6rem;
+}
+#info {
+  font-size: 2.2rem;
+}
+input[type="button"] {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  font-size: 1.2rem;
+  padding: .4rem;
+  cursor: pointer;
+}
+input[type="button"]:hover {
+  border: 1px dashed white;
+}
+@media screen and (max-width: 650px) {
+  #game {
+    width: 300px;
+    height: 300px;
+  }
+  .square {
+    width: 50px;
+    height: 50px;
+  }
+  .chicken {
+    width: 20px;
+    height: 20px;
+    top: calc(50% - 10px);
+  }
+  .fox {
+    width: 30px;
+    height: 30px;
+    top: calc(50% - 15px);
+  }
+}
+@media only screen and (min-width: 651px) {
+  #game {
+    width: 600px;
+    height: 600px;
+  }
+  .square {
+    width: 100px;
+    height: 100px;
+  }
+  .chicken {
+    width: 30px;
+    height: 30px;
+    top: calc(50% - 15px);
+  }
+  .fox {
+    width: 40px;
+    height: 40px;
+    top: calc(50% - 20px);
+  }
+}
+@media only screen and (min-width: 951px) {
+  #game {
+    width: 900px;
+    height: 900px;
+  }
+  .square {
+    width: 150px;
+    height: 150px;
+  }
+  .chicken {
+    width: 40px;
+    height: 40px;
+    top: calc(50% - 20px);
+  }
+  .fox {
+    width: 50px;
+    height: 50px;
+    top: calc(50% - 25px);
+  }
+}
