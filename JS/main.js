@@ -9,6 +9,7 @@ var attack;
 var cols;
 var playground;
 var turnHTML;
+var dragSrcEl = null;
 
 // GAME FUNCTIONS
 
@@ -398,6 +399,14 @@ function handleDragStart(e) {
   attack = creature.name == "fox" ? findAttacks(playground.map, creature) : [];
   displayPossibleMoves(possible, true);
   displayPossibleAttacks(attack[0], true);
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/html', this.innerHTML);
+  // Don't do anything if dropping the same column we're dragging.
+  if (dragSrcEl != this) {
+    // Set the source column's HTML to the HTML of the column we dropped on.
+    dragSrcEl.innerHTML = this.innerHTML;
+    this.innerHTML = e.dataTransfer.getData('text/html');
+  }
 }
 
 function handleDragOver(e) {
