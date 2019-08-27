@@ -17,9 +17,13 @@ h1, h2, h3, h4 {
   margin: .4rem;
   padding: .2rem;
 }
+h1 {
+}
 #gameWrapper {
   position: relative;
   margin: 4.6rem 0;
+  padding: 0;
+  box-sizing: border-box;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -31,7 +35,6 @@ h1, h2, h3, h4 {
   z-index: -1;
 }
 #game {
-  border: 1px solid white;
   width: 900px;
   height: 100%;
   display: flex;
@@ -39,6 +42,8 @@ h1, h2, h3, h4 {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  outline: 1px solid white;
+  outline-offset: 30px;
 }
 .square {
   width: 150px;
@@ -79,6 +84,7 @@ h1, h2, h3, h4 {
 }
 #status {
   font-size: 2.6rem;
+  color: rgb(245, 182, 60);
 }
 #info {
   font-size: 2.2rem;

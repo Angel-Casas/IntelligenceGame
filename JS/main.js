@@ -140,12 +140,7 @@ function findMoves(map, creature) {
     }
   }
   if (!findPar(pos[0], pos[1])) {
-    for (var i = possibleMoves.length - 1; i >= 0; i--) {
-      if (!findPar(possibleMoves[i][0], possibleMoves[i][1])) {
-        console.log("found diag move: " + "(" + possibleMoves[i][0] + " , " + possibleMoves[i][1] + ")");
-        possibleMoves.splice(i, 1);
-      }
-    }
+    removeImparPossibilities(pos, possibleMoves);
   }
   return possibleMoves;
 }
@@ -160,21 +155,13 @@ function findAttacks(map, fox) {
       let targetChickenPos = [pos[0] + (targetPos[0]-pos[0]) / 2, pos[1] + (targetPos[1]-pos[1]) / 2];
       let targetCreature = (map[targetChickenPos[0]][targetChickenPos[1]]).creature;
       if(map[targetPos[0]][targetPos[1]].blocked !== true && targetCreature && targetCreature.name == "chicken") {
-        console.log("Found possible Attack");
-        possibleAttacks.push(map[pos[0]+l[0]][pos[1]+l[1]].coord);
+        possibleAttacks.push(map[targetPos[0]][targetPos[1]].coord);
         possibleChickens.push(map[targetChickenPos[0]][targetChickenPos[1]].coord);
       }
     }
   }
   if (!findPar(pos[0], pos[1])) {
-    for (var i = possibleAttacks.length - 1; i >= 0; i--) {
-      if (!findPar(possibleAttacks[0][i][0], possibleAttacks[0][i][1])) {
-        console.log(possibleAttacks);
-        console.log("found diag move: " + "(" + possibleAttacks[0][i][0] + " , " + possibleAttacks[0][i][1] + ")");
-        possibleAttacks.splice(i, 1);
-        possibleChickens.splice(i, 1);
-      }
-    }
+    removeImparPossibilities(pos, possibleAttacks);
   }
   return [possibleAttacks, possibleChickens];
 }
@@ -368,6 +355,22 @@ function elementChildren (element) {
     }
 
     return children;
+}
+
+function removeImparPossibilities(pos, possibleArr) {
+  if (possibleArr.length) {
+    for (var i = possibleArr.length - 1; i >= 0; i--) {
+      if (!findPar(possibleArr[i][0], possibleArr[i][1])) {
+        if (pos[0] == possibleArr[i][0] || pos[1] == possibleArr[i][1]) {
+          continue;
+        } else {
+          console.log("found diag move: " + "(" + possibleArr[i][0] + " , " + possibleArr[i][1] + ")");
+          possibleArr.splice(i, 1);
+        }
+      }
+    }
+  }
+  return possibleArr;
 }
 
 // LISTENER FUNCTIONS
