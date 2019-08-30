@@ -9,7 +9,10 @@ var attack;
 var cols;
 var playground;
 var turnHTML;
+var start;
+var newTurn;
 var dragSrcEl = null;
+var buttons = document.querySelector("#mainButtons");
 
 // GAME FUNCTIONS
 
@@ -374,17 +377,48 @@ function removeImparPossibilities(pos, possibleArr) {
   return possibleArr;
 }
 
-function intriductionHandle(show) {
+function introductionHandle(show) {
   // show: boolean true/false show or hide introduction
   let intro = document.querySelector("#introduction");
   if (show) {
     intro.style.display = "block";
-
+    buttons.style.display = "none";
+    document.querySelector(".nextSlide").addEventListener("click", changeSlide, false);
   } else {
     intro.innerHTML = "";
     intro.style.display = "none";
   }
   return;
+}
+
+function changeSlide() {
+  let slides = document.querySelectorAll(".slide");
+  for (var el of slides) {
+    if (el.style.display == "block") {
+      let index = Number(el.getAttribute("data-slide")) + 1;
+      el.style.display = "none";
+      if (slides[index]) {
+        slides[index].style.display = "block";
+      } else {
+        executeNewGame();
+      }
+      return;
+    }
+  }
+  return;
+}
+
+function demoChicken() {
+  let chicken = document.querySelector(".slide[data]");
+  return;
+}
+function executeNewGame() {
+  buttons.style.display = "none";
+  newGame();
+  turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
+  document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
+  document.querySelector("#introduction").style.display = "none";
+  console.log(playground);
 }
 // LISTENER FUNCTIONS
 
@@ -486,14 +520,9 @@ function handleDragEnd(e) {
 // CODE EXECUTION
 
 window.addEventListener("load", function() {
-  let start = document.querySelector("#btnStart");
-  let newTurn = document.querySelector("#newTurn");
-  start.addEventListener("click", function() {
-    newGame();
-    turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
-    document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
-    console.log(playground);
-  }, false);
+  start = document.querySelector("#btnStart");
+  newTurn = document.querySelector("#newTurn");
+  start.addEventListener("click", executeNewGame, false);
   newTurn.addEventListener("click", function() {
     if (playground.state == "Jugando") {
       console.log("yes");
@@ -503,3 +532,5 @@ window.addEventListener("load", function() {
     }
   }, false);
 }, false);
+document.querySelector("#btnIntro").addEventListener("click", introductionHandle, false);
+document.querySelector("#newGame").addEventListener("click", executeNewGame, false);

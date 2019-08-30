@@ -7,33 +7,59 @@
         <link rel="stylesheet" href="CSS/style.css">
         <link href="https://fonts.googleapis.com/css?family=Libre+Caslon+Display&display=swap" rel="stylesheet">
         <script src="JS/main.js" defer></script>
-        <script src="DragDropTouch.js" defer></script>
+        <script src="JS/DragDropTouch.js" defer></script>
     </head>
     <body>
       <div id="wrapper">
-        <h1>El Zorro y las gallinas</h1>
-        <img srcset="./Images/foxChicken200.png 200w,
-            ./Images/foxChicken.png 600w"
-        sizes="(max-width: 650px) 200px,
-                (min-width: 651px) 400px"
-        src="./Images/foxChicken200.png" alt="fox and Chicken logo">
-        <div id="introduction">
-          <div id="slidesWrapper">
-
-          </div>
+        <header>
+          <h1>El Zorro y las gallinas</h1>
+          <img srcset="./Images/foxChicken200.png 200w,
+              ./Images/foxChicken.png 600w"
+          sizes="(max-width: 650px) 200px,
+                  (min-width: 651px) 400px"
+          src="./Images/foxChicken200.png" alt="fox and Chicken logo">
+        </header>
           <p id="introText"></p>
-        </div>
         <div id="gameWrapper">
+          <div id="introduction">
+            <div id="slidesWrapper">
+              <div class="slide" data-slide="0" style="display: block">
+                <div class="squareZone">
+                  <div class="chicken"></div>
+                  <div class="chicken"></div>
+                  <div class="chicken"></div>
+                  <div class="chicken"></div>
+                  <div class="chicken"></div>
+                </div>
+                <p>Se empieza con 20 gallinas y su objetivo es acorralar a los zorros o llegar a la ultima parcela.</p>
+              </div>
+              <div class="slide" data-slide="1" style="display: none">
+                <div class="squareZone">
+                  <div class="squareIntro"></div>
+                  <div class="squareIntro">
+                    <div class="chicken"></div>
+                  </div>
+                  <div class="squareIntro"></div>
+                </div>
+                <p>Las gallinas y los zorros pueden mover una casilla siguiendo el patron de el tablero.</p>
+              </div>
+              <button class="nextSlide"></button>
+            </div>
+          </div>
+          <div id="mainButtons">
+            <input type="button" id="btnIntro" class="btn" value="Introducción">
+            <input type="button" id="btnStart" class="btn" value="Empezar">
+          </div>
           <img srcset="./Images/300w.jpg 300w,
-             ./Images/600w.jpg 600w"
-     sizes="(max-width: 650px) 300px,
-            (min-width: 651px) 600px"
-     src="./Images/300w.jpg 300w" alt="Background">
+                       ./Images/600w.jpg 600w"
+               sizes="(max-width: 650px) 300px,
+                      (min-width: 651px) 600px"
+               src="./Images/300w.jpg 300w" alt="Background">
           <div id="game"></div>
         </div>
         <h4 id="status"></h4>
         <div id="info"></div>
-        <input type="button" id="btnStart" class="btn" value="Empezar">
+        <input type="button" id="newGame" class="btn" value="Nueva Partida">
         <input type="button" id="newTurn" class="btn" value="Nuevo Turno">
       </div>
     </body>

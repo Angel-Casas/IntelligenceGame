@@ -135,6 +135,12 @@ h1 {
   font-size: 3.2rem;
   font-family: 'Libre Caslon Display', serif;
 }
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
 #gameWrapper {
   position: relative;
   margin: 4.6rem 0;
@@ -149,6 +155,54 @@ h1 {
   position: absolute;
   top: 0;
   z-index: -1;
+  transition: filter .15s ease-in-out;
+}
+#introduction {
+  position: absolute;
+  display: none;
+  background-color: black;
+}
+.slide {
+  font-size: 2.6rem;
+}
+.slide p {
+  margin-bottom: 1.6rem;
+  background-color: rgba(0, 0, 0, .4);
+}
+.nextSlide {
+  background-image: url("../Images/IconNextTransparent.png");
+  width: 68px;
+	background-size: 68px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: none;
+	border-radius: unset;
+	min-height: 68px;
+	height: auto;
+	color: #fff;
+  z-index: 10000;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+}
+.nextSlide:hover {
+  background-image: url("../Images/IconNextWhite.png") !important;
+}
+.squareIntro {
+  border: 1px solid white;
+  width: 75px;
+  height: 75px;
+}
+.squareZone {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+#groupIntro .chicken {
+  margin: 1.5rem;
+}
+#mainButtons:hover ~ img {
+  filter: blur(5px);
 }
 #game {
   width: 900px;
@@ -205,12 +259,26 @@ h1 {
 #info {
   font-size: 2.2rem;
 }
+#mainButtons {
+  position: absolute;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+#btnStart {
+  z-index: 10000;
+}
+#btnIntro {
+}
 input[type="button"] {
   background-color: black;
   color: white;
   border: 1px solid white;
   font-size: 2.2rem;
-  padding: .4rem;
+  height: 60px;
+  padding: 0 1.4rem;
   cursor: pointer;
 }
 input[type="button"]:hover {
@@ -236,6 +304,10 @@ input[type="button"]:hover {
     height: 30px;
     top: calc(50% - 15px);
   }
+  #introduction {
+    width: 300px;
+    height: 300px;
+  }
 }
 @media only screen and (min-width: 651px) {
   #game {
@@ -255,5 +327,9 @@ input[type="button"]:hover {
     width: 40px;
     height: 40px;
     top: calc(50% - 20px);
+  }
+  #introduction {
+    width: 600px;
+    height: 600px;
   }
 }
