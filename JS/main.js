@@ -374,6 +374,18 @@ function removeImparPossibilities(pos, possibleArr) {
   return possibleArr;
 }
 
+function intriductionHandle(show) {
+  // show: boolean true/false show or hide introduction
+  let intro = document.querySelector("#introduction");
+  if (show) {
+    intro.style.display = "block";
+
+  } else {
+    intro.innerHTML = "";
+    intro.style.display = "none";
+  }
+  return;
+}
 // LISTENER FUNCTIONS
 
 function addListenersSquares() {

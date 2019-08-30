@@ -133,6 +133,7 @@ h1, h2, h3, h4 {
 }
 h1 {
   font-size: 3.2rem;
+  font-family: 'Libre Caslon Display', serif;
 }
 #gameWrapper {
   position: relative;
@@ -157,7 +158,7 @@ h1 {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  outline: 1px solid white;
+  outline: 1px solid rgb(233, 189, 33);
   outline-offset: 30px;
 }
 .square {
@@ -199,7 +200,7 @@ h1 {
 }
 #status {
   font-size: 2.6rem;
-  color: rgb(245, 182, 60);
+  color: rgb(233, 189, 33);
 }
 #info {
   font-size: 2.2rem;
@@ -213,7 +214,8 @@ input[type="button"] {
   cursor: pointer;
 }
 input[type="button"]:hover {
-  border: 1px dashed white;
+  background-color: white;
+  color: black;
 }
 @media screen and (max-width: 650px) {
   #game {
