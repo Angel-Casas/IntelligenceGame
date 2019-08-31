@@ -212,7 +212,7 @@ header {
   animation: chicken 3s linear 0s infinite;
 }
 .foxIntro {
-  animation: fox 3s linear 0s infinite;
+  animation: fox 2s linear 0s infinite;
 }
 #mainButtons:hover ~ img {
   filter: blur(5px);
@@ -304,8 +304,14 @@ input[type="button"]:hover {
   0% {
     left: 0;
   }
+  20% {
+    left: 0;
+  }
   50% {
     left: -245px;
+  }
+  80% {
+    left: 0;
   }
   100% {
     left: 0;
