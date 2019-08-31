@@ -412,6 +412,7 @@ function demoChicken() {
   let chicken = document.querySelector(".slide[data]");
   return;
 }
+
 function executeNewGame() {
   buttons.style.display = "none";
   newGame();
@@ -420,6 +421,7 @@ function executeNewGame() {
   document.querySelector("#introduction").style.display = "none";
   console.log(playground);
 }
+
 // LISTENER FUNCTIONS
 
 function addListenersSquares() {
