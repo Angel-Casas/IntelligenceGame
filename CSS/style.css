@@ -122,6 +122,9 @@ q:before {
   -khtml-user-drag: element;
   -webkit-user-drag: element;
 }
+*:focus {
+    outline: 0 !important;
+}
 body {
   background-color: black;
   color: white;
@@ -196,12 +199,12 @@ header {
 }
 .squareIntro {
   border: 1px solid white;
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
 }
 .squareZone {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -213,6 +216,9 @@ header {
 }
 .foxIntro {
   animation: fox 2s linear 0s infinite;
+}
+.foxIntro2 {
+  animation: fox2 2s linear 0s infinite;
 }
 #mainButtons:hover ~ img {
   filter: blur(5px);
@@ -300,6 +306,32 @@ input[type="button"]:hover {
   background-color: white;
   color: black;
 }
+@keyframes fox2 {
+  0% {
+    left: 0;
+  }
+  20% {
+    left: 0;
+  }
+  40% {
+    left: -130px;
+  }
+  50% {
+    left: -130px;
+  }
+  60% {
+    left: -260px;
+  }
+  70% {
+    left: -260px;
+  }
+  80% {
+    left: 0;
+  }
+  100% {
+    left: 0;
+  }
+}
 @keyframes fox {
   0% {
     left: 0;
@@ -307,8 +339,11 @@ input[type="button"]:hover {
   20% {
     left: 0;
   }
-  50% {
-    left: -245px;
+  40% {
+    left: -260px;
+  }
+  60% {
+    left: -260px;
   }
   80% {
     left: 0;
@@ -322,19 +357,19 @@ input[type="button"]:hover {
     left: 0px;
   }
   20% {
-    left: -122px;
+    left: -130px;
   }
   40% {
-    left: -122px;
+    left: -130px;
   }
   50% {
     left: 0px;
   }
   70% {
-    left: 122px;
+    left: 130px;
   }
   90% {
-    left: 122px;
+    left: 130px;
   }
    100% {
      left: 0px;
