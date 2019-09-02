@@ -271,6 +271,26 @@ header {
 .over {
   border: 1px dashed white;
 }
+#winner {
+  position: absolute;
+  display: none;
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+  width: 400px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, .6);
+  z-index: 10000;
+}
+#winner > p {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  font-size: 5.6rem;
+  font-weight: bold;
+  color: rgb(251, 201, 25);
+}
 #status {
   font-size: 2.6rem;
   color: rgb(233, 189, 33);
@@ -287,7 +307,6 @@ header {
   width: 100%;
 }
 #btnStart {
-  z-index: 10000;
 }
 #btnIntro {
 }

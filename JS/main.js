@@ -200,7 +200,11 @@ function checkConditions(playground) {
   if (playground.removed == 6) {
     status = "El Zorro ganó!";
   } else if (findMoves(playground.map, playground.foxes[0]).length == 0 && findMoves(playground.map, playground.foxes[1]).length == 0) {
-    status = "Las gallinas ganaron!";
+    let at1 = findAttacks(playground.map, playground.foxes[0]);
+    let at2 = findAttacks(playground.map, playground.foxes[1]);
+    if (at1[0].length == 0 && at2[0].length == 0) {
+      status = "Las gallinas ganaron!";
+    }
   } else {
     for (el of special) {
       if (playground.map[el[0]][el[1]].creature.name == "chicken") {
@@ -211,6 +215,12 @@ function checkConditions(playground) {
         break;
       }
     }
+  }
+  if (status == "El Zorro ganó!" || status == "Las gallinas ganaron!") {
+    showChickenCount(false);
+    document.querySelector("#winner > p").innerHTML = status;
+    document.querySelector("#winner").style.display = "block";
+    document.querySelector("#status").innerHTML = "";
   }
   return status;
 }
@@ -417,8 +427,20 @@ function demoChicken() {
   return;
 }
 
+function showChickenCount(bool) {
+  let count = playground.removed;
+  let div = document.querySelector("#chickenCount");
+  if (bool) {
+    div.innerHTML = "Gallinas eliminadas: " + count;
+  } else {
+    div.innerHTML = "";
+  }
+  return;
+}
+
 function executeNewGame() {
   buttons.style.display = "none";
+  document.querySelector("#winner").style.display = "none";
   newGame();
   turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
   document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
@@ -493,6 +515,7 @@ function handleDrop(e) {
       displayPossibleMoves(possible, false);
       displayPossibleAttacks(attack[0], false);
       attack = creature.name == "fox" ? findAttacks(playground.map, creature) : [];
+      showChickenCount(true);
       if (attack[0].length) {
       } else {
         playground.changeTurn();
