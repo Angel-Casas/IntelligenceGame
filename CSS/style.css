@@ -306,75 +306,8 @@ input[type="button"]:hover {
   background-color: white;
   color: black;
 }
-@keyframes fox2 {
-  0% {
-    left: 0;
-  }
-  20% {
-    left: 0;
-  }
-  40% {
-    left: -130px;
-  }
-  50% {
-    left: -130px;
-  }
-  60% {
-    left: -260px;
-  }
-  70% {
-    left: -260px;
-  }
-  80% {
-    left: 0;
-  }
-  100% {
-    left: 0;
-  }
-}
-@keyframes fox {
-  0% {
-    left: 0;
-  }
-  20% {
-    left: 0;
-  }
-  40% {
-    left: -260px;
-  }
-  60% {
-    left: -260px;
-  }
-  80% {
-    left: 0;
-  }
-  100% {
-    left: 0;
-  }
-}
-@keyframes chicken {
-  0% {
-    left: 0px;
-  }
-  20% {
-    left: -130px;
-  }
-  40% {
-    left: -130px;
-  }
-  50% {
-    left: 0px;
-  }
-  70% {
-    left: 130px;
-  }
-  90% {
-    left: 130px;
-  }
-   100% {
-     left: 0px;
-   }
-}
+
+
 @media screen and (max-width: 650px) {
   #game {
     width: 300px;
@@ -397,6 +330,75 @@ input[type="button"]:hover {
   #introduction {
     width: 320px;
     height: 320px;
+  }
+  @keyframes chicken {
+    0% {
+      left: 0;
+    }
+    10% {
+      left: 0;
+    }
+    25% {
+      left: -130px;
+    }
+    40% {
+      left: 0%;
+    }
+    60% {
+      left: 0%;
+    }
+    75% {
+      left: 130px;
+    }
+    90% {
+      left: 0;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @keyframes fox {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    40% {
+      left: -260px;
+    }
+    60% {
+      left: -260px;
+    }
+    80% {
+      left: 0;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @keyframes fox2 {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    40% {
+      left: -130px;
+    }
+    50% {
+      left: -130px;
+    }
+    60% {
+      left: -260px;
+    }
+    80% {
+      left: -260px;
+    }
+    100% {
+      left: 0;
+    }
   }
 }
 @media only screen and (min-width: 651px) {
@@ -421,5 +423,74 @@ input[type="button"]:hover {
   #introduction {
     width: 620px;
     height: 620px;
+  }
+  @keyframes chicken {
+    0% {
+      left: 0;
+    }
+    10% {
+      left: 0;
+    }
+    25% {
+      left: -280px;
+    }
+    40% {
+      left: 0%;
+    }
+    60% {
+      left: 0%;
+    }
+    75% {
+      left: 280px;
+    }
+    90% {
+      left: 0;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @keyframes fox {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    40% {
+      left: -560px;
+    }
+    60% {
+      left: -560px;
+    }
+    80% {
+      left: 0;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @keyframes fox2 {
+    0% {
+      left: 0;
+    }
+    20% {
+      left: 0;
+    }
+    40% {
+      left: -280px;
+    }
+    50% {
+      left: -280px;
+    }
+    60% {
+      left: -560px;
+    }
+    80% {
+      left: -560px;
+    }
+    100% {
+      left: 0;
+    }
   }
 }

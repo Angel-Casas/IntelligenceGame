@@ -307,6 +307,10 @@ function displayPossibleAttacks(possibleAttacks, display) {
         possibleDiv.classList.remove("possibleAttacks");
       }
     }
+  } else {
+    for (var el of document.querySelectorAll(".possibleAttacks")) {
+      el.classList.remove("possibleAttacks");
+    }
   }
   return;
 }
@@ -486,9 +490,15 @@ function handleDrop(e) {
       attackChicken(playground.map, creature, target, attack);
       moveCreature(playground.map, creature, target, attack[0]);
       this.appendChild(src.firstChild);
-      playground.changeTurn();
-      turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
-      document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
+      displayPossibleMoves(possible, false);
+      displayPossibleAttacks(attack[0], false);
+      attack = creature.name == "fox" ? findAttacks(playground.map, creature) : [];
+      if (attack[0].length) {
+      } else {
+        playground.changeTurn();
+        turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
+        document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
+      }
     } else {
       if (moveCreature(playground.map, creature, target, possible)) {
         this.appendChild(src.firstChild);
@@ -514,9 +524,9 @@ function handleDragEnd(e) {
   [].forEach.call(cols, function (col) {
     col.classList.remove('over');
     col.style.opacity = "1";
-    displayPossibleMoves(possible, false);
-    displayPossibleAttacks(attack[0], false);
   });
+  displayPossibleMoves(possible, false);
+  displayPossibleAttacks(attack[0], false);
 }
 
 // CODE EXECUTION
