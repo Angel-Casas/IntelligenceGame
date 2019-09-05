@@ -144,6 +144,9 @@ header {
   justify-content: space-around;
   align-items: center;
 }
+a {
+  text-decoration: none;
+}
 #gameWrapper {
   position: relative;
   margin: 4.6rem 0;
@@ -158,6 +161,7 @@ header {
   position: absolute;
   top: 0;
   z-index: -1;
+  background-color: rgb(251, 192, 123);
   transition: filter .15s ease-in-out;
 }
 #introduction {
@@ -221,7 +225,7 @@ header {
   animation: fox2 2s linear 0s infinite;
 }
 #mainButtons:hover ~ img {
-  filter: blur(5px);
+  filter: blur(3px);
 }
 #game {
   width: 900px;
@@ -231,7 +235,7 @@ header {
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
-  outline: 1px solid rgb(233, 189, 33);
+  outline: 1px solid rgb(251, 192, 123);
   outline-offset: 30px;
 }
 .square {
@@ -242,25 +246,23 @@ header {
 }
 .special {
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, .6);
+  background-color: rgba(255, 255, 255, .5);
 }
 .chicken, .fox {
   border-radius: 5px;
   position: relative;
   margin: 0 auto;
   cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+
 }
 .chicken {
-  width: 40px;
-  height: 40px;
-  top: calc(50% - 20px);
-  background-color: red;
+  background-image: url("../Images/chickenIcon.png");
 }
 .fox {
-  width: 60px;
-  height: 60px;
-  top: calc(50% - 30px);
-  background-color: blue;
+  background-image: url("../Images/foxIcon.png");
 }
 .possibleMoves {
   background-color: rgba(255, 0, 0, .4);
@@ -301,18 +303,21 @@ header {
 #mainButtons {
   position: absolute;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  height: 100%;
 }
 #btnStart {
 }
 #btnIntro {
 }
+input {
+  color: white;
+}
 input[type="button"] {
   background-color: black;
-  color: white;
   border: 1px solid white;
   font-size: 2.2rem;
   height: 60px;
@@ -320,10 +325,35 @@ input[type="button"] {
   -webkit-appearance:none;
   opactiy: 1;
   cursor: pointer;
+  transition: all .3s ease-in-out;
 }
 input[type="button"]:hover {
   background-color: white;
   color: black;
+}
+input[type=checkbox] {
+  display:none;
+}
+input[type=checkbox] + label {
+   background-image: url("../Images/rotateIconWhite.png");
+   background-size: 60px 60px;
+   background-repeat: no-repeat;
+   background-position: center;
+   height: 60px;
+   width: 60px;
+   display:inline-block;
+   padding: 0 0 0 0px;
+}
+
+input[type=checkbox]:checked + label {
+  background-image: url("../Images/rotateIconBlack.png");
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 60px;
+  width: 60px;
+  display:inline-block;
+  padding: 0 0 0 0px;
 }
 
 
@@ -337,14 +367,16 @@ input[type="button"]:hover {
     height: 50px;
   }
   .chicken {
-    width: 20px;
-    height: 20px;
-    top: calc(50% - 10px);
+    width: 40px;
+    height: 40px;
+    top: calc(50% - 20px);
+    background-size: 40px 40px;
   }
   .fox {
-    width: 30px;
-    height: 30px;
-    top: calc(50% - 15px);
+    width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
+    top: calc(50% - 20px);
   }
   #introduction {
     width: 320px;
@@ -430,14 +462,16 @@ input[type="button"]:hover {
     height: 100px;
   }
   .chicken {
-    width: 30px;
-    height: 30px;
-    top: calc(50% - 15px);
+    width: 60px;
+    height: 60px;
+    top: calc(50% - 30px);
+    background-size: 60px 60px;
   }
   .fox {
-    width: 40px;
-    height: 40px;
-    top: calc(50% - 20px);
+    width: 60px;
+    height: 60px;
+    top: calc(50% - 25px);
+    background-size: 60px 60px;
   }
   #introduction {
     width: 620px;
