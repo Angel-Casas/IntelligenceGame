@@ -453,6 +453,7 @@ function enableRotate() {
   rotate = true;
   return rotate;
 }
+
 function rotateScreen() {
   let input = document.querySelector("#autoRotate");
   let wrapper = document.querySelector("#gameWrapper");
@@ -460,6 +461,7 @@ function rotateScreen() {
     wrapper.style.transform = (wrapper.style.transform == "rotate(180deg)") ? "rotate(0deg)" : "rotate(180deg)";
   }
 }
+
 // LISTENER FUNCTIONS
 
 function addListenersSquares() {
