@@ -13,6 +13,7 @@ var start;
 var newTurn;
 var dragSrcEl = null;
 var buttons = document.querySelector("#mainButtons");
+var rotate = false;
 
 // GAME FUNCTIONS
 
@@ -448,6 +449,17 @@ function executeNewGame() {
   console.log(playground);
 }
 
+function enableRotate() {
+  rotate = true;
+  return rotate;
+}
+function rotateScreen() {
+  let input = document.querySelector("#autoRotate");
+  let wrapper = document.querySelector("#gameWrapper");
+  if (input.checked) {
+    wrapper.style.transform = (wrapper.style.transform == "rotate(180deg)") ? "rotate(0deg)" : "rotate(180deg)";
+  }
+}
 // LISTENER FUNCTIONS
 
 function addListenersSquares() {
@@ -519,6 +531,7 @@ function handleDrop(e) {
       if (attack[0].length) {
       } else {
         playground.changeTurn();
+        rotateScreen();
         turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
         document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
       }
@@ -526,6 +539,7 @@ function handleDrop(e) {
       if (moveCreature(playground.map, creature, target, possible)) {
         this.appendChild(src.firstChild);
         playground.changeTurn();
+        rotateScreen();
         turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
         document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
       }
@@ -552,6 +566,7 @@ function handleDragEnd(e) {
   displayPossibleAttacks(attack[0], false);
 }
 
+
 // CODE EXECUTION
 
 window.addEventListener("load", function() {
@@ -560,7 +575,6 @@ window.addEventListener("load", function() {
   start.addEventListener("click", executeNewGame, false);
   newTurn.addEventListener("click", function() {
     if (playground.state == "Jugando") {
-      console.log("yes");
       playground.changeTurn();
       turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
       document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
@@ -569,3 +583,4 @@ window.addEventListener("load", function() {
 }, false);
 document.querySelector("#btnIntro").addEventListener("click", introductionHandle, false);
 document.querySelector("#newGame").addEventListener("click", executeNewGame, false);
+document.querySelector("#autoRotate").addEventListener("click", enableRotate, false);

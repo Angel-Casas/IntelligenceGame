@@ -17,7 +17,7 @@
               ./Images/foxChickenTriangle.png 600w"
           sizes="(max-width: 650px) 200px,
                   (min-width: 651px) 400px"
-          src="./Images/foxChickenTriangle200.png" alt="fox and Chicken logo"></a>
+          src="./Images/foxChickenTriangle200.png" alt="fox and Chicken logo" id="headerIcon"></a>
         </header>
           <p id="introText"></p>
         <div id="gameWrapper">
@@ -118,9 +118,11 @@
         <h4 id="status"></h4>
         <div id="info"></div>
         <div id="chickenCount"></div>
-        <input type="button" id="newGame" class="btn" value="Nueva Partida">
-        <input type="button" id="newTurn" class="btn" value="Nuevo Turno">
-        <!-- <input type="checkbox" id="autoRotate" name="autoRotate"><label for="autoRotate"></label> -->
+        <div id="controlButtons">
+          <input type="button" id="newGame" class="btn" value="Nueva Partida">
+          <input type="button" id="newTurn" class="btn" value="Nuevo Turno">
+          <input type="checkbox" id="autoRotate" name="autoRotate"><label for="autoRotate"></label>
+        </div>
       </div>
     </body>
 </html>
