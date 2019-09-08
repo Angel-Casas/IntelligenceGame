@@ -219,6 +219,7 @@ function checkConditions(playground) {
   }
   if (status == "El Zorro ganó!" || status == "Las gallinas ganaron!") {
     showChickenCount(false);
+    disableRotate();
     document.querySelector("#winner > p").innerHTML = status;
     document.querySelector("#winner").style.display = "block";
     document.querySelector("#status").innerHTML = "";
@@ -449,17 +450,14 @@ function executeNewGame() {
   console.log(playground);
 }
 
-function enableRotate() {
-  rotate = true;
-  return rotate;
-}
-
 function rotateScreen() {
-  let input = document.querySelector("#autoRotate");
   let wrapper = document.querySelector("#gameWrapper");
-  if (input.checked) {
-    wrapper.style.transform = (wrapper.style.transform == "rotate(180deg)") ? "rotate(0deg)" : "rotate(180deg)";
-  }
+  wrapper.style.transform = (wrapper.style.transform == "rotate(180deg)") ? "rotate(0deg)" : "rotate(180deg)";
+  return wrapper;
+}
+function changeRotate() {
+  rotate = (rotate == true) ? false : true;
+  return rotate;
 }
 
 // LISTENER FUNCTIONS
@@ -533,7 +531,9 @@ function handleDrop(e) {
       if (attack[0].length) {
       } else {
         playground.changeTurn();
-        rotateScreen();
+        if (rotate) {
+          rotateScreen();
+        }
         turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
         document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
       }
@@ -541,7 +541,9 @@ function handleDrop(e) {
       if (moveCreature(playground.map, creature, target, possible)) {
         this.appendChild(src.firstChild);
         playground.changeTurn();
-        rotateScreen();
+        if (rotate) {
+          rotateScreen();
+        }
         turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
         document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
       }
@@ -578,6 +580,9 @@ window.addEventListener("load", function() {
   newTurn.addEventListener("click", function() {
     if (playground.state == "Jugando") {
       playground.changeTurn();
+      if (rotate) {
+        rotateScreen();
+      }
       turnHTML = playground.turn == "Chicken" ? "las gallinas" : "el Zorro";
       document.querySelector("#info").innerHTML = "Turno de " + turnHTML +".";
     }
@@ -585,4 +590,5 @@ window.addEventListener("load", function() {
 }, false);
 document.querySelector("#btnIntro").addEventListener("click", introductionHandle, false);
 document.querySelector("#newGame").addEventListener("click", executeNewGame, false);
-document.querySelector("#autoRotate").addEventListener("click", enableRotate, false);
+document.querySelector("#autoRotate").addEventListener("click", changeRotate, false);
+document.querySelector("#rotate").addEventListener("click", rotateScreen, false);
