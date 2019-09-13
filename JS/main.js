@@ -395,7 +395,9 @@ function removeImparPossibilities(pos, possibleArr) {
 
 function introductionHandle(show) {
   // show: boolean true/false show or hide introduction
+  
   let intro = document.querySelector("#introduction");
+
   if (show) {
     intro.style.display = "block";
     buttons.style.display = "none";
@@ -404,6 +406,7 @@ function introductionHandle(show) {
     intro.innerHTML = "";
     intro.style.display = "none";
   }
+
   return;
 }
 
@@ -421,11 +424,6 @@ function changeSlide() {
       return;
     }
   }
-  return;
-}
-
-function demoChicken() {
-  let chicken = document.querySelector(".slide[data]");
   return;
 }
 
@@ -455,6 +453,7 @@ function rotateScreen() {
   wrapper.style.transform = (wrapper.style.transform == "rotate(180deg)") ? "rotate(0deg)" : "rotate(180deg)";
   return wrapper;
 }
+
 function changeRotate() {
   rotate = (rotate == true) ? false : true;
   return rotate;
