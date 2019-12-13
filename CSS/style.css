@@ -252,7 +252,6 @@ a {
   align-items: center;
   box-sizing: border-box;
   outline: 1px solid rgb(251, 192, 123);
-  outline-offset: 30px;
 }
 .square {
   width: 150px;
