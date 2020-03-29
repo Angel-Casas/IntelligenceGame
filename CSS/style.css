@@ -125,23 +125,36 @@ q:before {
 *:focus {
     outline: 0 !important;
 }
+
+/* MAIN CSS */
+
+html {
+  height: 100%;
+}
 body {
   background-color: rgb(30, 30, 30);
   color: white;
   text-align: center;
+  height: 100%;
 }
 h1, h2, h3, h4 {
   margin: .4rem;
   padding: .2rem;
 }
 h1 {
-  font-size: 3.2rem;
+  font-size: 4.2rem;
   font-family: 'Libre Caslon Display', serif;
   transition: all .3s ease-in-out;
 }
 h2 {
   font-size: 5.6rem;
   color: rgb(251, 201, 25);
+}
+#wrapper {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
 }
 header {
   display: flex;
@@ -391,6 +404,17 @@ input[type=checkbox]:checked + label::after {
   text-align: left;
   animation: hide 0s 3s forwards;
 }
+/* FOOTER */
+footer {
+  margin-top: 2.5rem;
+  padding: 1.5rem 0;
+}
+footer a {
+  text-decoration: underline;
+}
+
+/* MEDIA QUERIES */
+
 @keyframes hide {
   to {
     visibility: hidden;
